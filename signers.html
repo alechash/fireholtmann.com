@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<h1><a href="/">FIRE&nbsp; CHRIS&nbsp; HOLTMANN.</a></h1>
+	<br><br>
+	<p>Petition signers:</p>
+	<br>
+	<div id="names">
+
+	</div>
+
+	<script>
+		$.getJSON('https://script.google.com/macros/s/AKfycbypv4Vf7apCVX1Lpo1eQiHTjp8ipiNoW88B5kEoaN-Ywe_KXKyoYMusC57pzZ2buFSXIw/exec', function(data) {
+
+			var html = ""
+
+			for (i = 0; i < data.firstNames.length; i++) {
+				html = html + `
+					<p>${data.firstNames[i][0]} ${data.lastNames[i][0]} from ${data.states[i][0]}<p>
+				`
+			}
+
+
+			$("#names").html(html);
+		});
+	</script>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			font-weight: 600;
+			font-size: calc(100vw / 14);
+			text-align: center;
+			font-family: 'Golos Text', sans-serif;
+			margin-bottom: 0;
+		}
+
+		h2 {
+			font-weight: 600;
+			font-size: calc(100vw / 25);
+			text-align: center;
+			font-family: 'Golos Text', sans-serif;
+			margin-TOP: 0;
+		}
+
+		p {
+			text-align: center;
+			margin: 0;
+			font-size: calc(100vw / 45);
+			font-weight: 500;
+			font-family: 'Golos Text', sans-serif;
+		}
+
+		h1 a {
+			text-decoration: none;
+			color: black;
+		}
+
+		a {
+			text-decoration: none;
+			color: blue;
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: white;
+			background: red;
+		}
+	</style>
+</body>
+
+</html>
