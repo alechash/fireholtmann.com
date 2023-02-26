@@ -20,6 +20,10 @@
 	</div>
 
 	<script>
+		if (window.location.includes("script.google.com")) {
+			window.location = "https://fireholtmann.com/signers.html"
+		}
+
 		$.getJSON('https://script.google.com/macros/s/AKfycbypv4Vf7apCVX1Lpo1eQiHTjp8ipiNoW88B5kEoaN-Ywe_KXKyoYMusC57pzZ2buFSXIw/exec', function(data) {
 
 			var html = ""
