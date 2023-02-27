@@ -13,18 +13,18 @@
 <body>
 	<h1><a href="/">FIRE&nbsp; CHRIS&nbsp; HOLTMANN.</a></h1>
 	<br><br>
-	<p>Petition signers:</p>
+	<p class="title">Petition Signers (<span id="count">a lot</span>)</p>
 	<br>
 	<div id="names">
-
+		<p>Loading...</p>
 	</div>
 
 	<script>
-		if (window.location.includes("script.google.com")) {
+		if (String(window.location).includes("script.google.com")) {
 			window.location = "https://fireholtmann.com/signers.html"
 		}
 
-		$.getJSON('https://script.google.com/macros/s/AKfycbypv4Vf7apCVX1Lpo1eQiHTjp8ipiNoW88B5kEoaN-Ywe_KXKyoYMusC57pzZ2buFSXIw/exec', function(data) {
+		$.getJSON('https://script.google.com/macros/s/AKfycbwd88FyL_h57V0nKs47Mj6ylUL8yhnEW-2uSEbitoTuyd42wcRmKiubR4CgpLEV9ba8Hw/exec', function(data) {
 
 			var html = ""
 
@@ -36,6 +36,7 @@
 
 
 			$("#names").html(html);
+			$("#count").html(data.firstNames.length);
 		});
 	</script>
 
@@ -43,6 +44,12 @@
 		body {
 			margin: 0;
 			padding: 0;
+		}
+
+		.title {
+			background: black;
+			color: white;
+			text-align: center;
 		}
 
 		h1 {
@@ -62,9 +69,9 @@
 		}
 
 		p {
-			text-align: center;
-			margin: 0;
-			font-size: calc(100vw / 45);
+			text-align: left;
+			margin: 0 5vw;
+			font-size: 20px;
 			font-weight: 500;
 			font-family: 'Golos Text', sans-serif;
 		}
